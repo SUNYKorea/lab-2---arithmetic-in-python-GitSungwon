@@ -1,16 +1,27 @@
 # -------------------------------------- Task 1 -----------------------------------
+
 def add(x, y):
     return x + y
+def sub(x, y):
+    return x - y
+def div(x, y):
+    return x / y
+def mult(x, y):
+    return x * y
+def exp(x, y):
+    return x ** y
 
-# TODO: Add definitions of sub(), div(), mult(), exp(), as well as neg() and sqrt().
-#       neg() should return the negation of the given number, and sqrt() should
-#       return the square root of the given number. 
+
+# TODO: Add definitions of sub(), div(), mult(), exp(), 
+#       as well as neg() and sqrt().
+#       neg() should return the negation of the given number,
+#       and sqrt() should return the square root of the given number. 
 
 def neg(x):
-    ... # fill here
+    return -x
 
 def sqrt(x):
-    ... # fill here
+    return x ** (1/2)
 
 # -------------------------------------- Task 2 -----------------------------------
 
@@ -18,11 +29,23 @@ def sqrt(x):
 #       Do not use arithmetic operators directly. 
 #       You're allowed to define other functions.
 a = 1
-b = -3
-c = 1
+b = 4
+c = -21
 
-x1 = ... # TODO: write a code to compute the first root of the quadratic equation
-x2 = ... # TODO: then do the same for the second root
+
+mult4 = sub(mult(b,b), mult(4,mult(a,c)))
+sqrtmul = sqrt(mult4)
+
+addmult = add(neg(b),sqrtmul)
+submult = sub(neg(b),sqrtmul)
+divsub = div(submult, mult(2,a))
+divsub2 = div(addmult, mult(2,a))
+
+
+
+#(-b+- (b^2 - 4ac)^(1/2))/2a
+x1 = divsub2 # TODO: write a code to compute the first root of the quadratic equation
+x2 = divsub # TODO: then do the same for the second root
 # Note: Make sure to remove the ellipsis (...) when you're writing your code
 
 print("First root:" + str(x1))
